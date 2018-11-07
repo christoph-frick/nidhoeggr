@@ -12,7 +12,7 @@ def check_suint(value):
 	return __int_range_check(value,0,65535)
 
 def check_team(value):
-	return __int_range_check(value,0,6)
+	return __int_range_check(value,0,19)
 
 def check_helmetcolour(value):
 	return __int_range_check(value,0,15)
@@ -36,7 +36,9 @@ def check_players(value):
 	return __int_range_check(value,0,20)
 
 def check_chassisbitfield(value):
-	return __bitfield_check(20,value)
+	if __bitfield_check(20,value) is not None:
+		return __bitfield_check(7,value)
+	return None
 
 def check_carclassbitfield(value):
 	return __bitfield_check(3,value)
